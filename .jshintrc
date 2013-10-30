@@ -21,7 +21,7 @@
   "nonew": true,
   "plusplus": false,
   "undef": true,
-  "unused": true,
+  "unused": "vars",
   "strict": false,
   "trailing": false,
   "globalstrict": true,
