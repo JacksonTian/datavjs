@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cross Bubble</title>
+  </head>
+
+  <body>
+    <script src="../../build/deps.js"></script>
+    <script src="../../lib/datav.js"></script>
+    <script src="../../lib/charts/cross.js"></script>
+    <script src="../../lib/charts/cross_pie.js"></script>
+    <div id="chart"></div>
+    <script>
+    var randomIndex = function (mod) {
+      return Math.floor(Math.random() * 100) % mod;
+    }
+    var gender = ['男', '女'];
+    var consume_level = ['新手', '初级', '中级', '资深', '骨灰'];
+    var age = ['18-25', '25-30', '30-35', '35-40', '40-50', '50+'];
+    var source = [];
+    for (var i = 0; i < 100; i++) {
+      // [性别，消费层级，年龄层次]
+      source.push([gender[randomIndex(2)], consume_level[randomIndex(5)], age[randomIndex(6)], 1]);
+    }
+    console.log(source);
+
+    var crossPie = new CrossPie("chart", {
+      "width": 980,
+      "height": 600,
+      "gridWidth": 80,
+      "gridHeight": 60,
+      "showSummary": true,
+      "colors": ["#ff0000", "#00ff00"]
+    });
+    crossPie.setSource(source, {
+      x: 1,
+      y: 2,
+      z: 0,
+      value: 3
+    });
+    crossPie.render();
+    </script>
+  </body>
+</html>
